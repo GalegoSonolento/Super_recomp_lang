@@ -1,0 +1,8 @@
+  >> "Não pode querer ir pra guerra com secador de cabelo"
+  [Guerrinha] Erro semântico na linha 8: variável 'c' não foi declarada.
+  >> "Não pode querer ir pra guerra com secador de cabelo"
+  [Guerrinha] Erro semântico na linha 9: variável 'd' não foi declarada.
+  >> "Não pode querer ir pra guerra com secador de cabelo"
+  [Guerrinha] Erro semântico na linha 10: variável 'a' já foi declarada na linha 4.
+  >> "Não pode querer ir pra guerra com secador de cabelo"
+  [Guerrinha] Erro semântico na linha 15: variável 'local' não foi declarada.

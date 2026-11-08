@@ -1,0 +1,6 @@
+// L1 - ERRO LÉXICO: '@' e '$' não pertencem ao alfabeto da linguagem.
+// Esperado: erro léxico na linha 5 (e na 6); o programa é rejeitado.
+int a;
+a = 2;
+a = a @ 3;
+int $b;

@@ -1,0 +1,98 @@
+--- AST ---
+Programa
+  Declaração int  (linha 4)
+    a
+      7
+    b
+      3
+  Declaração float  (linha 5)
+    r
+  Se  (linha 7)
+    condição:
+      >
+        a
+        b
+    então:
+      Atribuição r =  (linha 8)
+        1.0
+  Se  (linha 11)
+    condição:
+      ==
+        a
+        b
+    então:
+      Atribuição r =  (linha 12)
+        0.0
+    senão:
+      Atribuição r =  (linha 14)
+        -  : int
+          a
+          b
+  Se  (linha 17)
+    condição:
+      <
+        a
+        b
+    então:
+      Atribuição r =  (linha 18)
+        - (unário)
+          1.0
+    senão-se (linha 19) condição:
+      >=
+        a
+        10
+    bloco:
+      Atribuição r =  (linha 20)
+        10.0
+    senão-se (linha 21) condição:
+      <=
+        a
+        0
+    bloco:
+      Atribuição r =  (linha 22)
+        0.0
+    senão-se (linha 23) condição:
+      !=
+        a
+        b
+    bloco:
+      Atribuição r =  (linha 24)
+        2.0
+    senão:
+      Atribuição r =  (linha 26)
+        3.0
+--- Código de três endereços ---
+    a = 7
+    b = 3
+    ifFalse a > b goto L1
+    r = 1.0
+L1:
+    ifFalse a == b goto L3
+    r = 0.0
+    goto L2
+L3:
+    t1 = a - b
+    t2 = (float) t1
+    r = t2
+L2:
+    ifFalse a < b goto L5
+    t3 = - 1.0
+    r = t3
+    goto L4
+L5:
+    ifFalse a >= 10 goto L6
+    r = 10.0
+    goto L4
+L6:
+    ifFalse a <= 0 goto L7
+    r = 0.0
+    goto L4
+L7:
+    ifFalse a != b goto L8
+    r = 2.0
+    goto L4
+L8:
+    r = 3.0
+L4:
+  >> "Se Beleza fosse crime, eu seria inocente"
+  [Guerrinha] Programa aceito.

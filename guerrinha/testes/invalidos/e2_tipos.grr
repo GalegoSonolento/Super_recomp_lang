@@ -1,0 +1,10 @@
+// E2 - ERRO SEMÂNTICO DE TIPOS: valor float atribuído a variável int.
+// float <- int é permitido (alargamento); int <- float NÃO é.
+// Esperado: 3 erros de tipo (linhas 8, 9 e 10).
+int n;
+float f = 3;        // ok: int -> float
+f = n;              // ok
+
+n = 2.5;            // erro: literal float em int
+n = f * 2;          // erro: float * int = float
+int m = n / 2.0;    // erro: inicialização com float

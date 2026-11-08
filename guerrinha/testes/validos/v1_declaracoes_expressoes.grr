@@ -1,0 +1,15 @@
+// V1 - Declarações (individual, em lista, com inicialização),
+//      precedência/associatividade e menos unário.
+// Esperado: ACEITO. No TAC, 10 + 5 * 2 calcula a multiplicação primeiro
+//           e 20 - 4 - 1 associa à esquerda ((20 - 4) - 1).
+int limite, faixa;
+int base = 3;
+float media, taxa = 2.5;
+
+limite = 10 + 5 * 2;
+faixa = 20 - 4 - 1;
+base = -(base + 1) * 2;
+media = limite / 2;          // int / int = int, depois alarga para float
+taxa = taxa * base + 0.5;    // base é convertida para float no TAC
+
+Vou botar uma gravata pra te ouvir (media);

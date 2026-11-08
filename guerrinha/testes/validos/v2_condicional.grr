@@ -1,0 +1,27 @@
+// V2 - Condicional com os três formatos (se / se-senão / se-senãose-senão)
+//      e os seis operadores relacionais.
+// Esperado: ACEITO.
+int a = 7, b = 3;
+float r;
+
+Ninguém quer saber o preço do dólar (a > b) {
+    r = 1.0;
+}
+
+Ninguém quer saber o preço do dólar (a == b) {
+    r = 0.0;
+}, nós não temos dólar {
+    r = a - b;
+}
+
+Ninguém quer saber o preço do dólar (a < b) {
+    r = -1.0;
+} Se algo deu certo, então tem que mudar (a >= 10) {
+    r = 10.0;
+} Se algo deu certo, então tem que mudar (a <= 0) {
+    r = 0.0;
+} Se algo deu certo, então tem que mudar (a != b) {
+    r = 2.0;
+}, nós não temos dólar {
+    r = 3.0;
+}

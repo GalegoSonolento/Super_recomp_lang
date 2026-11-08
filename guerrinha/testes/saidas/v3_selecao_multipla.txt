@@ -1,0 +1,79 @@
+--- AST ---
+Programa
+  Declaração int  (linha 4)
+    dia
+      3
+    tipo
+  Escolha  (linha 6)
+    expressão:
+      dia
+    caso 1:
+      Atribuição tipo =  (linha 8)
+        10
+      Pare  (linha 9)
+    caso 2, 6, 7:
+      Atribuição tipo =  (linha 11)
+        20
+      Pare  (linha 12)
+    caso 3:
+      Atribuição tipo =  (linha 14)
+        30
+    caso 4:
+      Atribuição tipo =  (linha 16)
+        +  : int
+          tipo
+          1
+      Pare  (linha 17)
+    caso padrão:
+      Atribuição tipo =  (linha 19)
+        0
+  Escolha  (linha 23)
+    expressão:
+      -  : int
+        tipo
+        30
+    caso -1:
+      Atribuição tipo =  (linha 24)
+        1
+      Pare  (linha 24)
+    caso 1:
+      Atribuição tipo =  (linha 25)
+        2
+      Pare  (linha 25)
+--- Código de três endereços ---
+    dia = 3
+    if dia == 1 goto L2
+    if dia == 2 goto L3
+    if dia == 6 goto L3
+    if dia == 7 goto L3
+    if dia == 3 goto L4
+    if dia == 4 goto L5
+    goto L6
+L2:
+    tipo = 10
+    goto L1
+L3:
+    tipo = 20
+    goto L1
+L4:
+    tipo = 30
+L5:
+    t1 = tipo + 1
+    tipo = t1
+    goto L1
+L6:
+    tipo = 0
+L1:
+    t2 = tipo - 30
+    if t2 == -1 goto L8
+    if t2 == 1 goto L9
+    goto L7
+L8:
+    tipo = 1
+    goto L7
+L9:
+    tipo = 2
+    goto L7
+L7:
+  >> "Se Beleza fosse crime, eu seria inocente"
+  [Guerrinha] Programa aceito.

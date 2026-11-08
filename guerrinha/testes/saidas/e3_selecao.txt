@@ -1,0 +1,6 @@
+  >> "Não dá pra servir farofa em restaurante com ventilador de teto"
+  [Guerrinha] Erro semântico na linha 7: a expressão da seleção múltipla deve ser int, mas é float.
+  >> "Não pode querer ir pra guerra com secador de cabelo"
+  [Guerrinha] Erro semântico na linha 9: rótulo de caso 1 repetido (já usado na linha 8).
+  >> "Não pode querer ir pra guerra com secador de cabelo"
+  [Guerrinha] Erro semântico na linha 13: encerramento de caso fora de seleção múltipla ou laço.

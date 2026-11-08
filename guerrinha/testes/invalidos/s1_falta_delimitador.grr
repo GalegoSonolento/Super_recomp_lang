@@ -1,0 +1,7 @@
+// S1 - ERRO SINTÁTICO: falta o ';' no fim da atribuição da linha 6.
+// Esperado: erro sintático na linha 7 (o parser só percebe a falta do ';'
+//           quando vê o próximo token, 'b', que está na linha 7).
+int a, b;
+a = 1;
+a = a + 2
+b = a;

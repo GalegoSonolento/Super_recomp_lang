@@ -1,0 +1,6 @@
+  >> "Não dá pra servir farofa em restaurante com ventilador de teto"
+  [Guerrinha] Erro semântico na linha 8: não é possível atribuir valor float à variável int 'n'.
+  >> "Não dá pra servir farofa em restaurante com ventilador de teto"
+  [Guerrinha] Erro semântico na linha 9: não é possível atribuir valor float à variável int 'n'.
+  >> "Não dá pra servir farofa em restaurante com ventilador de teto"
+  [Guerrinha] Erro semântico na linha 10: não é possível atribuir valor float à variável int 'm'.

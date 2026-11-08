@@ -1,0 +1,25 @@
+// V4 - Programa completo: laço, seleção dentro do laço, escopo de bloco
+//      e mistura de int e float.
+// Esperado: ACEITO.
+int i = 0, pares = 0, impares = 0;
+float soma = 0.0, media;
+
+Dormindo no gelo e acordando suado (i < 10) {
+    int resto;                       // variável local ao bloco do laço
+    resto = i - (i / 2) * 2;
+    switch (resto) {
+        case 0: pares = pares + 1; break;
+        default: impares = impares + 1;
+    }
+    soma = soma + i;
+    i = i + 1;
+}
+
+Ninguém quer saber o preço do dólar (i != 0) {
+    media = soma / i;
+}, nós não temos dólar {
+    media = 0;
+}
+
+Vou botar uma gravata pra te ouvir (media);
+Vou botar uma gravata pra te ouvir (pares * 100 + impares);

@@ -1,0 +1,66 @@
+--- AST ---
+Programa
+  Declaração int  (linha 5)
+    limite
+    faixa
+  Declaração int  (linha 6)
+    base
+      3
+  Declaração float  (linha 7)
+    media
+    taxa
+      2.5
+  Atribuição limite =  (linha 9)
+    +  : int
+      10
+      *  : int
+        5
+        2
+  Atribuição faixa =  (linha 10)
+    -  : int
+      -  : int
+        20
+        4
+      1
+  Atribuição base =  (linha 11)
+    *  : int
+      - (unário)
+        +  : int
+          base
+          1
+      2
+  Atribuição media =  (linha 12)
+    /  : int
+      limite
+      2
+  Atribuição taxa =  (linha 13)
+    +  : float
+      *  : float
+        taxa
+        base
+      0.5
+  Imprime  (linha 15)
+    media
+--- Código de três endereços ---
+    base = 3
+    taxa = 2.5
+    t1 = 5 * 2
+    t2 = 10 + t1
+    limite = t2
+    t3 = 20 - 4
+    t4 = t3 - 1
+    faixa = t4
+    t5 = base + 1
+    t6 = - t5
+    t7 = t6 * 2
+    base = t7
+    t8 = limite / 2
+    t9 = (float) t8
+    media = t9
+    t10 = (float) base
+    t11 = taxa * t10
+    t12 = t11 + 0.5
+    taxa = t12
+    print media
+  >> "Se Beleza fosse crime, eu seria inocente"
+  [Guerrinha] Programa aceito.

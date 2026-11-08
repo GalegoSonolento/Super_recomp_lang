@@ -1,0 +1,26 @@
+// V3 - Seleção múltipla: caso unitário, caso múltiplo, caso sem
+//      encerramento (cai no próximo), caso padrão.
+// Esperado: ACEITO. No TAC, o caso 3 não tem "goto" de saída: cai no 4.
+int dia = 3, tipo;
+
+switch (dia) {
+    case 1:
+        tipo = 10;
+        break;
+    case 2, 6, 7:
+        tipo = 20;
+        break;
+    case 3:
+        tipo = 30;
+    case 4:
+        tipo = tipo + 1;
+        break;
+    default:
+        tipo = 0;
+}
+
+// seleção sem caso padrão
+switch (tipo - 30) {
+    case -1: tipo = 1; break;
+    case 1:  tipo = 2; break;
+}
