@@ -1,2 +1,0 @@
-  >> "Tu comprou o cavalo pra ler ou pra correr? Porque se for pra ler está desfeito o negócio"
-  [Guerrinha] Erro sintático na linha 11: token inesperado palavra reservada "case".
