@@ -1,7 +1,0 @@
-__pycache__/
-*.pyc
-build/
-parsetab.py
-parser.out
-lextab.py
-.ipynb_checkpoints/

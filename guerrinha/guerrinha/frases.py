@@ -15,11 +15,6 @@ Regras de escrita das frases (decididas no projeto, ver docs/decisoes.md):
   * Ao redor de pontuação (vírgula, ?, .) o espaço é opcional.
   * A frase só casa se terminar numa fronteira de palavra
     ("...dólares" não casa com "...dólar").
-
-Marcadores:
-  # TODO-FRASE  -> ainda está com a palavra provisória em inglês.
-                   Trocar pela frase escolhida e atualizar os testes
-                   (buscar/substituir em testes/).
 """
 
 # ---------------------------------------------------------------

@@ -9,3 +9,10 @@
 .obsidian/plugins/vscode-editor/main.js
 .obsidian/plugins/vscode-editor/manifest.json
 .obsidian/plugins/vscode-editor/styles.css
+__pycache__/
+*.pyc
+build/
+parsetab.py
+parser.out
+lextab.py
+.ipynb_checkpoints/
