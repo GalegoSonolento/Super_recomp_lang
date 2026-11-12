@@ -4,7 +4,7 @@
 radio i = 0, pares = 0, impares = 0;
 gaucha soma = 0.0, media;
 
-Dormindo no gelo e acordando suado (i < 10) {
+Não dá pra comer banana e assobiar ao mesmo tempo (i < 10) {
     radio resto;                     // variável local ao bloco do laço
     resto = i - (i / 2) * 2;
     O time vai jogar motivado? (resto) {

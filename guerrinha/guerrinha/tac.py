@@ -13,22 +13,48 @@ Formato das instruções:
     L:                  rótulo
     print x
     print "texto"
+
+Temporários se chamam t1, t2, ...; um nome já usado por variável do programa
+é pulado (senão `radio t1;` seria sobrescrita por um temporário).
+Cada instrução guarda a linha do fonte que a gerou, para o interpretador
+(interpretador.py) poder relatar erros de execução com a linha.
 """
 
 from . import ast_nodes as A
 
 
+def nomes_declarados(no, nomes=None):
+    """Conjunto com o nome de todas as variáveis declaradas na AST."""
+    if nomes is None:
+        nomes = set()
+    if isinstance(no, A.DeclItem):
+        nomes.add(no.nome)
+    if isinstance(no, list):
+        for x in no:
+            nomes_declarados(x, nomes)
+    elif isinstance(no, A.No):
+        for v in vars(no).values():
+            nomes_declarados(v, nomes)
+    return nomes
+
+
 class GeradorTAC:
     def __init__(self):
         self.codigo = []
+        self.linhas = []          # linha do fonte de cada instrução de `codigo`
+        self.linha = 0            # linha do comando sendo traduzido
         self.n_temp = 0
         self.n_rot = 0
         self.alvos_pare = []      # pilha de rótulos de saída (break)
+        self.nomes_programa = set()
 
     # ---------------- utilitários ----------------
     def temp(self):
-        self.n_temp += 1
-        return f"t{self.n_temp}"
+        while True:
+            self.n_temp += 1
+            nome = f"t{self.n_temp}"
+            if nome not in self.nomes_programa:
+                return nome
 
     def rotulo(self):
         self.n_rot += 1
@@ -36,11 +62,14 @@ class GeradorTAC:
 
     def emit(self, instr):
         self.codigo.append("    " + instr)
+        self.linhas.append(self.linha)
 
     def emit_rotulo(self, r):
         self.codigo.append(f"{r}:")
+        self.linhas.append(self.linha)
 
     def gerar(self, programa):
+        self.nomes_programa = nomes_declarados(programa)
         for c in programa.comandos:
             self.cmd(c)
         return self.codigo
@@ -77,14 +106,18 @@ class GeradorTAC:
         return end
 
     def condicao_falsa(self, cond, destino):
+        anterior, self.linha = self.linha, cond.linha
         tipo = "float" if "float" in (cond.esq.tipo, cond.dir.tipo) else "int"
         a = self.para_tipo(cond.esq, tipo)
         b = self.para_tipo(cond.dir, tipo)
         self.emit(f"ifFalse {a} {cond.op} {b} goto {destino}")
+        self.linha = anterior
 
     # ---------------- comandos ----------------
     def cmd(self, no):
+        anterior, self.linha = self.linha, no.linha
         getattr(self, "cmd_" + type(no).__name__)(no)
+        self.linha = anterior
 
     def bloco(self, b):
         for c in b.comandos:
@@ -93,6 +126,7 @@ class GeradorTAC:
     def cmd_Declaracao(self, no):
         for it in no.itens:
             if it.init is not None:
+                self.linha = it.linha
                 self.emit(f"{it.nome} = {self.para_tipo(it.init, no.tipo)}")
 
     def cmd_Atribuicao(self, no):
@@ -166,3 +200,10 @@ class GeradorTAC:
 
 def gerar_tac(programa):
     return GeradorTAC().gerar(programa)
+
+
+def gerar_tac_com_linhas(programa):
+    """Como gerar_tac, mas devolve pares (instrução, linha do fonte)."""
+    g = GeradorTAC()
+    g.gerar(programa)
+    return list(zip(g.codigo, g.linhas))

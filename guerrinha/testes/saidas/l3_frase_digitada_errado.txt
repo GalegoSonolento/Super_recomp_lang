@@ -1,0 +1,6 @@
+  >> "Eu não sei nada de tudo, eu nunca consegui falar com o cavalo, eu paro, falo com ele e ele não me responde. Futebol é meu forte."
+  [Little_Guerra] Erro léxico na linha 7: palavra 'ninguém' não reconhecida: identificadores não podem ter acento (será que é uma frase reservada digitada errado?).
+  >> "Eu não sei nada de tudo, eu nunca consegui falar com o cavalo, eu paro, falo com ele e ele não me responde. Futebol é meu forte."
+  [Little_Guerra] Erro léxico na linha 7: palavra 'preço' não reconhecida: identificadores não podem ter acento (será que é uma frase reservada digitada errado?).
+  >> "Eu não sei nada de tudo, eu nunca consegui falar com o cavalo, eu paro, falo com ele e ele não me responde. Futebol é meu forte."
+  [Little_Guerra] Erro léxico na linha 7: palavra 'dólar' não reconhecida: identificadores não podem ter acento (será que é uma frase reservada digitada errado?).

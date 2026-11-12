@@ -1,0 +1,9 @@
+// L3 - ERRO LÉXICO: frase reservada digitada errado ("ninguém" com minúscula).
+// A linguagem diferencia maiúsculas de minúsculas, então a frase do "se" não
+// casa e as palavras viram identificadores; os acentuados são rejeitados.
+// Esperado: 3 erros léxicos na linha 7 ('ninguém', 'preço' e 'dólar').
+radio saldo = 100;
+
+ninguém quer saber o preço do dólar (saldo > 50) {
+    saldo = saldo - 50;
+}

@@ -15,7 +15,7 @@
 | caso (case) | `Então vai perder motivado` |
 | encerramento (break) | `Tem gato na tuba` |
 | caso padrão (default) | `Butuca tira boi do mato` |
-| laço (while) | `Dormindo no gelo e acordando suado` |
+| laço (while) | `Não dá pra comer banana e assobiar ao mesmo tempo` |
 | impressão (print) | `Vou botar uma gravata pra te ouvir` |
 
 Regras de escrita das frases:
@@ -157,7 +157,7 @@ O time vai jogar motivado? (dia) {
 
 ```
 radio i = 0;
-Dormindo no gelo e acordando suado (i < 10) {
+Não dá pra comer banana e assobiar ao mesmo tempo (i < 10) {
     Ninguém quer saber o preço do dólar (i == 5) {
         Tem gato na tuba;
     }
@@ -214,7 +214,9 @@ Erro léxico ou sintático interrompe a compilação (para no **primeiro** erro 
 ## 12. Escrevendo um programa novo
 
 1. Crie um arquivo `.grr` em UTF-8.
-2. Rode `python main.py meu_programa.grr`. Opções: `--so-tac`, `--so-ast` e `--tokens`; esta última é ótima para descobrir por que uma frase não foi reconhecida.
+2. Rode `python main.py meu_programa.grr`: o programa é compilado e **executado** (o que ele imprime aparece no terminal). Se houver erro, aparece a frase + o erro com a linha, e nada é executado.
+   Opções: `-gt` (grava `meu_programa.txt` ao lado, com AST + TAC), `-c` (só compila e mostra AST + TAC), `--so-tac`, `--so-ast` e `--tokens`; esta última é ótima para descobrir por que uma frase não foi reconhecida.
+   Erros que só aparecem ao executar: divisão por zero e variável usada antes de receber valor (`radio n; ... (n + 1)`).
 3. Para virar teste do trabalho:
    - válido → `testes/validos/vN_descricao.grr`; inválido → `testes/invalidos/<tipo>N_descricao.grr` (`s` sintático, `l` léxico, `e` semântico);
    - comece com o cabeçalho abaixo (ele entra no relatório);

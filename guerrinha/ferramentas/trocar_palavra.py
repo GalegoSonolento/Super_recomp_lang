@@ -17,6 +17,8 @@ import re
 import sys
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, RAIZ)
+from guerrinha import frases  # noqa: E402
 
 
 def main():
@@ -29,6 +31,8 @@ def main():
     for pasta in ("validos", "invalidos"):
         d = os.path.join(RAIZ, "testes", pasta)
         for nome in sorted(os.listdir(d)):
+            if not nome.endswith(frases.EXTENSAO):
+                continue
             caminho = os.path.join(d, nome)
             with open(caminho, encoding="utf-8") as f:
                 linhas = f.read().split("\n")

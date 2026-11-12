@@ -8,6 +8,7 @@ FRASES = {
     "sintático": frases.PIADA_ERRO_SINTATICO,
     "semântico": frases.PIADA_ERRO_SEMANTICO,
     "tipos": frases.PIADA_ERRO_TIPOS,
+    "execução": frases.PIADA_ERRO_EXECUCAO,
 }
 
 
@@ -22,6 +23,7 @@ class Erro:
 
     def __str__(self):
         frase = FRASES.get(self.categoria, "")
-        return (f'  >> "{frase}"\n'
+        cabecalho = f'  >> "{frase}"\n' if frase else ""
+        return (cabecalho +
                 f"  [{frases.NOME_LINGUAGEM}] Erro {self.fase} na linha "
                 f"{self.linha}: {self.mensagem}")

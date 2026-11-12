@@ -50,8 +50,8 @@ PALAVRAS_RESERVADAS = {
     "PADRAO":     "Butuca tira boi do mato",      # default (caso padrão)
 
     # --- extras (não obrigatórios pelo enunciado) ---
-    "ENQUANTO":   "Dormindo no gelo e acordando suado",           # while
-    "IMPRIME":    "Vou botar uma gravata pra te ouvir",           # print
+    "ENQUANTO":   "Não dá pra comer banana e assobiar ao mesmo tempo",  # while
+    "IMPRIME":    "Vou botar uma gravata pra te ouvir",                 # print
 }
 
 # ---------------------------------------------------------------
@@ -74,3 +74,6 @@ PIADA_ERRO_TIPOS = (              # incompatibilidade de tipos na atribuição
 PIADA_SUCESSO = (                 # programa aceito sem erros
     "Se Beleza fosse crime, eu seria inocente"
 )
+# Erro ao RODAR o programa (divisão por zero, variável sem valor).
+# Vazio = a mensagem sai sem frase antes.
+PIADA_ERRO_EXECUCAO = "Dormindo no gelo e acordando suado"

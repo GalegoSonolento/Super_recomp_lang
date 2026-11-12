@@ -15,6 +15,7 @@ RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, RAIZ)
 
 from main import compilar  # noqa: E402
+from guerrinha import frases  # noqa: E402
 
 TESTES = os.path.join(RAIZ, "testes")
 SAIDAS = os.path.join(TESTES, "saidas")
@@ -25,6 +26,8 @@ def main():
     falhas = 0
     for pasta, esperado in (("validos", True), ("invalidos", False)):
         for nome in sorted(os.listdir(os.path.join(TESTES, pasta))):
+            if not nome.endswith(frases.EXTENSAO):   # ignora .txt do -gt etc.
+                continue
             caminho = os.path.join(TESTES, pasta, nome)
             with open(caminho, encoding="utf-8") as f:
                 codigo = f.read()

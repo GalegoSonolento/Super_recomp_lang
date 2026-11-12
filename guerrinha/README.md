@@ -1,19 +1,31 @@
 # Little_Guerra — Compiladores, Trabalho do Grau B
 
 Linguagem cujas palavras reservadas são frases do Adroaldo Guerra Filho (Rádio Gaúcha).
-Front-end completo em **Python + PLY**: léxico → sintático (LALR) → semântico → tradução (AST + código de três endereços).
+Compilador em **Python + PLY**: léxico → sintático (LALR) → semântico → tradução (AST + código de três endereços) → execução (interpretador do código de três endereços).
 
-> **Falta trocar algumas palavras:** veja [`SUBSTITUICOES.md`](SUBSTITUICOES.md).
+> Todas as palavras obrigatórias já estão definidas. Opcionais: veja [`SUBSTITUICOES.md`](SUBSTITUICOES.md).
 
 ## Como rodar
 
 ```bash
-pip install ply                               # uma vez
-python main.py testes/validos/v4_programa_completo.grr
-python ferramentas/rodar_testes.py            # todos os testes -> testes/saidas/
+pip install ply                                     # uma vez
+python main.py testes/validos/v5_hello_world.grr    # compila e EXECUTA
+python ferramentas/rodar_testes.py                  # todos os testes -> testes/saidas/
 ```
 
-Outras opções do `main.py`: `--so-ast`, `--so-tac`, `--tokens`, `--palavras`, `--debug` (grava `build/parser.out`).
+Se o programa tiver erro (léxico, sintático, semântico ou de execução), aparece a frase + o erro com a linha, e o código de saída é 1.
+
+| Opção do `main.py` | O que faz |
+|---|---|
+| *(nenhuma)* | compila e executa |
+| `-gt`, `--gentxt` | também grava `programa.txt` ao lado do `.grr`, com AST + TAC (ou os erros), no mesmo formato de `testes/saidas/` |
+| `-c`, `--compilar` | só compila: mostra AST + TAC no terminal, não executa |
+| `--so-ast`, `--so-tac` | só compila: mostra só a AST / só o TAC |
+| `--tokens` | lista os tokens reconhecidos |
+| `--palavras` | tabela de palavras reservadas |
+| `--debug` | grava `build/parser.out` (tabela LALR) |
+
+No Windows, se os acentos saírem quebrados no terminal, rode antes `$env:PYTHONIOENCODING = "utf-8"` (PowerShell).
 
 **Colab:** rode `python ferramentas/gerar_notebook.py`, suba `colab/Little_Guerra.ipynb` no Colab e use *Executar tudo*. O notebook é autossuficiente (cada arquivo vira uma célula `%%writefile`).
 
@@ -27,8 +39,9 @@ guerrinha/
   ast_nodes.py     nós da AST + impressão
   semantica.py     declaração antes do uso, tipos, escopo, break, rótulos
   tac.py           geração de código de três endereços
+  interpretador.py executa o código de três endereços (faz o programa rodar)
   erros.py         formato das mensagens (piada + erro + linha)
-main.py            CLI: executa as fases em sequência
+main.py            CLI: compila e executa (ver opções acima)
 testes/
   validos/         v1..v5   (devem ser aceitos)
   invalidos/       s* sintáticos, l* léxico, e* semânticos (devem ser rejeitados)
@@ -56,7 +69,7 @@ docs/
 | 2f seis relacionais | `p_condicao` |
 | 3c semântica com linha | `semantica.py` |
 | 3d tradução dirigida | AST nas ações de `parser.py`; TAC em `tac.py` |
-| 3e 4 válidos + 4 inválidos | `testes/` (5 + 8) |
+| 3e 4 válidos + 4 inválidos | `testes/` (5 + 9) |
 | Erros com linha | `erros.py` (todas as fases) |
 
 ## Pendências do trabalho

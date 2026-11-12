@@ -60,3 +60,13 @@ Formato: **decisão** → benefício · por quê · contraponto. Serve de base p
     - Benefício: permite o Hello World sem mexer no sistema de tipos. `TEXTO` não está no FIRST de `expr`, então a gramática continua com 0 conflitos.
     - Por quê: não existe tipo texto nem variável de texto. Um literal de texto solto numa conta precisaria de regras de tipo novas (concatenação, comparação).
     - Contra: não dá para guardar texto em variável nem juntar texto e número num `imprime` só. O texto fica numa linha e não tem sequências de escape (`\n`, `\"`).
+
+15. **Execução por um interpretador do código de três endereços** (`interpretador.py`)
+    - Benefício: os programas rodam de verdade (`python main.py prog.grr`), e rodar o TAC confere a própria tradução: se o TAC estivesse errado, o resultado sairia errado.
+    - Por quê: interpretar o TAC (e não a AST) usa a saída da última fase do compilador, como faria um back-end. Cada instrução guarda a linha do fonte, então os erros de execução (divisão por zero, variável sem valor) também saem com a linha.
+    - Contra: não é obrigatório pelo enunciado e é mais lento que gerar código nativo. A divisão `radio / radio` trunca em direção a zero (como C), e não para baixo (como o `//` do Python).
+
+16. **Temporários do TAC não reaproveitam nomes do programa**
+    - Benefício: um programa com variável `t1` não tem o valor sobrescrito pelo temporário `t1` (o gerador pula para `t2`).
+    - Por quê: identificadores e temporários têm o mesmo formato. Antes da correção, `radio t1 = 5, x; x = t1 + 2 * 3;` gerava `t1 = 2 * 3`, e o resultado saía 12 em vez de 11.
+    - Contra: a numeração dos temporários pode ter "buracos" (t1, t3, ...).

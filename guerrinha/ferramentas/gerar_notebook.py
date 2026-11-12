@@ -27,6 +27,7 @@ ORDEM_FONTES = [
     "guerrinha/parser.py",
     "guerrinha/semantica.py",
     "guerrinha/tac.py",
+    "guerrinha/interpretador.py",
     "main.py",
     "ferramentas/rodar_testes.py",
     "ferramentas/experimento_conflitos.py",
@@ -55,7 +56,8 @@ def testes():
     out = []
     for pasta in ("validos", "invalidos"):
         d = os.path.join(RAIZ, "testes", pasta)
-        out += [f"testes/{pasta}/{n}" for n in sorted(os.listdir(d))]
+        out += [f"testes/{pasta}/{n}" for n in sorted(os.listdir(d))
+                if n.endswith(frases.EXTENSAO)]
     return out
 
 
@@ -68,7 +70,10 @@ def main():
            "Notebook gerado por `ferramentas/gerar_notebook.py`. "
            "Execute **Ambiente de execução → Executar tudo**.\n\n"
            "Seções: 1) instalação · 2) frases da linguagem · 3) código do "
-           "compilador · 4) programas de teste · 5) execução · 6) teste livre."),
+           "compilador · 4) programas de teste · 5) compilação e execução · "
+           "6) teste livre.\n\n"
+           "`python main.py prog.grr` compila e executa; `-c` só compila "
+           "(mostra AST + TAC); `-gt` grava prog.txt com AST + TAC."),
         md("## 1. Instalação"),
         code("!pip -q install ply\nimport os\n"
              f"for d in {pastas!r}:\n    os.makedirs(d, exist_ok=True)"),
@@ -84,10 +89,13 @@ def main():
         md("### 5.2 Conflitos da gramática (com e sem precedência)"),
         code("!python ferramentas/experimento_conflitos.py"),
         md("### 5.3 Programas válidos (AST + código de três endereços)"),
+        *[code(f"!python main.py -c {r}") for r in lista_testes if "/validos/" in r],
+        md("### 5.4 Programas válidos executando"),
         *[code(f"!python main.py {r}") for r in lista_testes if "/validos/" in r],
-        md("### 5.4 Programas inválidos (mensagem + linha)"),
+        md("### 5.5 Programas inválidos (mensagem + linha)"),
         *[code(f"!python main.py {r}") for r in lista_testes if "/invalidos/" in r],
-        md(f"## 6. Teste livre\nEdite o programa abaixo e execute as duas células."),
+        md("## 6. Teste livre\nEdite o programa abaixo e execute as duas células "
+           "(a segunda compila e executa; acrescente `-c` para ver AST + TAC)."),
         code(f"%%writefile meu_programa{frases.EXTENSAO}\n"
              f"{frases.PALAVRAS_RESERVADAS['TIPO_INT']} x = 1;\n"
              f"{frases.PALAVRAS_RESERVADAS['IMPRIME']} (x + 1);\n"),

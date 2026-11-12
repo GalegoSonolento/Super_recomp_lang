@@ -10,7 +10,6 @@ Todas as palavras obrigatórias já foram trocadas. Só sobrou o que é opcional
 
 Opcionais (são símbolos hoje; só troque se quiser):
 - delimitador de comando `;`, comentário `//` → em `guerrinha/lexer.py` (`t_PONTO_VIRGULA`, `t_COMENTARIO`).
-
 ## Já definidas
 
 | Token | Construção | Frase |
@@ -24,7 +23,7 @@ Opcionais (são símbolos hoje; só troque se quiser):
 | `CASO` | case | Então vai perder motivado |
 | `PARE` | break / encerramento de caso | Tem gato na tuba |
 | `PADRAO` | default / caso padrão | Butuca tira boi do mato |
-| `ENQUANTO` | while (extra) | Dormindo no gelo e acordando suado |
+| `ENQUANTO` | while (extra) | Não dá pra comer banana e assobiar ao mesmo tempo |
 | `IMPRIME` | print (extra) | Vou botar uma gravata pra te ouvir |
 | `NOME_LINGUAGEM` | nome da linguagem | Little_Guerra |
 
@@ -35,6 +34,7 @@ Opcionais (são símbolos hoje; só troque se quiser):
 | `PIADA_ERRO_SEMANTICO` | não declarada, redeclarada, break fora, rótulo repetido | Não pode querer ir pra guerra com secador de cabelo |
 | `PIADA_ERRO_TIPOS` | radio ← gaucha, switch com gaucha | Não dá pra servir farofa em restaurante com ventilador de teto |
 | `PIADA_SUCESSO` | programa aceito | Se Beleza fosse crime, eu seria inocente |
+| `PIADA_ERRO_EXECUCAO` | divisão por zero, variável sem valor (ao rodar) | Dormindo no gelo e acordando suado |
 
 ## Passo a passo para trocar uma palavra
 
