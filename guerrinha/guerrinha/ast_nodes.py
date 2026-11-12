@@ -114,8 +114,13 @@ class Pare(No):
 
 
 @dataclass
+class Texto(No):                  # literal de texto; só aparece no Imprime
+    valor: str
+
+
+@dataclass
 class Imprime(No):
-    expr: No
+    expr: No                      # expressão numérica ou Texto
 
 
 @dataclass
@@ -187,6 +192,8 @@ def imprimir_ast(no, nivel=0):
     elif isinstance(no, Negativo):
         linhas.append(f"{pad}- (unário)")
         linhas.append(imprimir_ast(no.expr, nivel + 1))
+    elif isinstance(no, Texto):
+        linhas.append(f'{pad}"{no.valor}"')
     elif isinstance(no, Num):
         linhas.append(f"{pad}{no.valor}")
     elif isinstance(no, Var):

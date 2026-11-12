@@ -1,4 +1,4 @@
   >> "Eu não sei nada de tudo, eu nunca consegui falar com o cavalo, eu paro, falo com ele e ele não me responde. Futebol é meu forte."
-  [Guerrinha] Erro léxico na linha 5: caractere inesperado '@'.
+  [Little_Guerra] Erro léxico na linha 5: caractere inesperado '@'.
   >> "Eu não sei nada de tudo, eu nunca consegui falar com o cavalo, eu paro, falo com ele e ele não me responde. Futebol é meu forte."
-  [Guerrinha] Erro léxico na linha 6: caractere inesperado '$'.
+  [Little_Guerra] Erro léxico na linha 6: caractere inesperado '$'.

@@ -1,15 +1,15 @@
 // V4 - Programa completo: laço, seleção dentro do laço, escopo de bloco
-//      e mistura de int e float.
+//      e mistura de radio e gaucha.
 // Esperado: ACEITO.
-int i = 0, pares = 0, impares = 0;
-float soma = 0.0, media;
+radio i = 0, pares = 0, impares = 0;
+gaucha soma = 0.0, media;
 
 Dormindo no gelo e acordando suado (i < 10) {
-    int resto;                       // variável local ao bloco do laço
+    radio resto;                     // variável local ao bloco do laço
     resto = i - (i / 2) * 2;
-    switch (resto) {
-        case 0: pares = pares + 1; break;
-        default: impares = impares + 1;
+    O time vai jogar motivado? (resto) {
+        Então vai perder motivado 0: pares = pares + 1; Tem gato na tuba;
+        Butuca tira boi do mato: impares = impares + 1;
     }
     soma = soma + i;
     i = i + 1;

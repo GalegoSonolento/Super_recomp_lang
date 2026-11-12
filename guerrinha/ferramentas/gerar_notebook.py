@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Gera colab/Guerrinha.ipynb: um notebook AUTOSSUFICIENTE para o Google Colab.
+Gera colab/<NOME_LINGUAGEM>.ipynb: um notebook AUTOSSUFICIENTE para o Google Colab.
 
 Cada arquivo do projeto vira uma célula %%writefile, então basta subir o .ipynb
 no Colab e executar "Ambiente de execução > Executar tudo" (sem ajustes, como

@@ -1,8 +1,8 @@
 // V2 - Condicional com os três formatos (se / se-senão / se-senãose-senão)
 //      e os seis operadores relacionais.
 // Esperado: ACEITO.
-int a = 7, b = 3;
-float r;
+radio a = 7, b = 3;
+gaucha r;
 
 Ninguém quer saber o preço do dólar (a > b) {
     r = 1.0;

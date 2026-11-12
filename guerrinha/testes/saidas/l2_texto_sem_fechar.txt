@@ -1,0 +1,2 @@
+  >> "Eu não sei nada de tudo, eu nunca consegui falar com o cavalo, eu paro, falo com ele e ele não me responde. Futebol é meu forte."
+  [Little_Guerra] Erro léxico na linha 3: texto sem aspas de fechamento (o texto precisa abrir e fechar na mesma linha).

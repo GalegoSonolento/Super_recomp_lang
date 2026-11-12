@@ -1,0 +1,3 @@
+// L2 - ERRO LÉXICO: o texto abre aspas e não fecha na mesma linha.
+// Esperado: erro léxico na linha 3; o programa é rejeitado.
+Vou botar uma gravata pra te ouvir ("Hello, World!);

@@ -45,7 +45,7 @@ REGEX_PALAVRAS = "|".join(f"(?:{frase_para_regex(f)})" for _, f in _ORDEM)
 # Lista de tokens
 # ------------------------------------------------------------------
 tokens = tuple(frases.PALAVRAS_RESERVADAS.keys()) + (
-    "ID", "NUM_INT", "NUM_FLOAT",
+    "ID", "NUM_INT", "NUM_FLOAT", "TEXTO",
     "MAIS", "MENOS", "VEZES", "DIVIDE",
     "IGUAL", "DIFERENTE", "MAIOR", "MENOR", "MAIOR_IGUAL", "MENOR_IGUAL",
     "ATRIBUI", "PONTO_VIRGULA", "VIRGULA", "DOIS_PONTOS",
@@ -82,6 +82,23 @@ t_ignore = " \t\r"
 def t_COMENTARIO(t):
     r"//[^\n]*"
     pass  # descartado
+
+
+def t_TEXTO(t):
+    r'"[^"\n]*"'
+    # Texto entre aspas duplas, numa linha só, sem sequências de escape.
+    t.value = t.value[1:-1]
+    return t
+
+
+def t_TEXTO_ABERTO(t):
+    r'"[^"\n]*'
+    # Aspas abertas que não fecham até o fim da linha.
+    t.lexer.erros.append(Erro(
+        "léxico", t.lexer.lineno,
+        "texto sem aspas de fechamento (o texto precisa abrir e fechar "
+        "na mesma linha)."))
+    return None
 
 
 @TOKEN(REGEX_PALAVRAS)

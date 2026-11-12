@@ -111,4 +111,4 @@ L6:
     t12 = t11 + impares
     print t12
   >> "Se Beleza fosse crime, eu seria inocente"
-  [Guerrinha] Programa aceito.
+  [Little_Guerra] Programa aceito.

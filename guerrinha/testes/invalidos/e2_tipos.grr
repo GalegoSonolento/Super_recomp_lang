@@ -1,10 +1,10 @@
-// E2 - ERRO SEMÂNTICO DE TIPOS: valor float atribuído a variável int.
-// float <- int é permitido (alargamento); int <- float NÃO é.
+// E2 - ERRO SEMÂNTICO DE TIPOS: valor gaucha atribuído a variável radio.
+// gaucha <- radio é permitido (alargamento); radio <- gaucha NÃO é.
 // Esperado: 3 erros de tipo (linhas 8, 9 e 10).
-int n;
-float f = 3;        // ok: int -> float
+radio n;
+gaucha f = 3;       // ok: radio -> gaucha
 f = n;              // ok
 
-n = 2.5;            // erro: literal float em int
-n = f * 2;          // erro: float * int = float
-int m = n / 2.0;    // erro: inicialização com float
+n = 2.5;            // erro: literal gaucha em radio
+n = f * 2;          // erro: gaucha * radio = gaucha
+radio m = n / 2.0;  // erro: inicialização com gaucha

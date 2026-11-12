@@ -216,6 +216,11 @@ def p_imprime(p):
     p[0] = A.Imprime(p.lineno(1), p[3])
 
 
+def p_imprime_texto(p):
+    "imprime : IMPRIME ABRE_PAR TEXTO FECHA_PAR PONTO_VIRGULA"
+    p[0] = A.Imprime(p.lineno(1), A.Texto(p.lineno(3), p[3]))
+
+
 # ------------------------------------------------------------------
 # (f) Condições com os seis operadores relacionais
 # ------------------------------------------------------------------

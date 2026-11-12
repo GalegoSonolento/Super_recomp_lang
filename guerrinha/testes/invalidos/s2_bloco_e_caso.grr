@@ -1,13 +1,13 @@
 // S2 - ERRO SINTÁTICO: caso padrão antes de um caso comum.
 // A gramática exige: casos primeiro, padrão (opcional) por último.
-// Esperado: erro sintático na linha 11, na palavra reservada "case".
-int x = 2;
+// Esperado: erro sintático na linha 11, na palavra reservada "Então vai perder motivado".
+radio x = 2;
 
-switch (x) {
-    case 1:
+O time vai jogar motivado? (x) {
+    Então vai perder motivado 1:
         x = 0;
-    default:
+    Butuca tira boi do mato:
         x = 5;
-    case 2:
+    Então vai perder motivado 2:
         x = 9;
 }

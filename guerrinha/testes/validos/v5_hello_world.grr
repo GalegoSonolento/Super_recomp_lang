@@ -1,0 +1,7 @@
+// V5 - Hello World: imprime um texto entre aspas e, depois, um número.
+// Esperado: ACEITO.
+Vou botar uma gravata pra te ouvir ("Hello, World!");
+
+radio ano = 2026;
+Vou botar uma gravata pra te ouvir ("Olá do Little_Guerra, no ano de");
+Vou botar uma gravata pra te ouvir (ano);

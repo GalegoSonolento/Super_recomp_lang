@@ -1,4 +1,4 @@
-# Guia da linguagem Guerrinha
+# Guia da linguagem Little_Guerra
 
 > Arquivo gerado por `ferramentas/gerar_guia.py` a partir de `guerrinha/frases.py`. **Não edite à mão**: rode o script de novo depois de trocar uma frase. Todos os exemplos abaixo foram compilados.
 
@@ -6,15 +6,15 @@
 
 | Construção | Escreva exatamente |
 |---|---|
-| tipo inteiro | `int` |
-| tipo fracionário | `float` |
+| tipo inteiro | `radio` |
+| tipo fracionário | `gaucha` |
 | se (if) | `Ninguém quer saber o preço do dólar` |
 | senão-se (else if) | `Se algo deu certo, então tem que mudar` |
 | senão (else) | `, nós não temos dólar` |
-| seleção (switch) | `switch` |
-| caso (case) | `case` |
-| encerramento (break) | `break` |
-| caso padrão (default) | `default` |
+| seleção (switch) | `O time vai jogar motivado?` |
+| caso (case) | `Então vai perder motivado` |
+| encerramento (break) | `Tem gato na tuba` |
+| caso padrão (default) | `Butuca tira boi do mato` |
 | laço (while) | `Dormindo no gelo e acordando suado` |
 | impressão (print) | `Vou botar uma gravata pra te ouvir` |
 
@@ -30,18 +30,18 @@ Um programa é uma sequência de comandos, sem `main`. Todo comando simples term
 
 ```
 // meu primeiro programa
-int x = 1;
+radio x = 1;
 Vou botar uma gravata pra te ouvir (x + 1);
 ```
 
 ## 3. Declarações
 
-Dois tipos: `int` (inteiro) e `float` (fracionário). Dá para declarar uma variável por vez ou uma lista, com ou sem valor inicial.
+Dois tipos: `radio` (inteiro) e `gaucha` (fracionário). Dá para declarar uma variável por vez ou uma lista, com ou sem valor inicial.
 
 ```
-int a;
-int b, c = 2, d;
-float media = 0.0, taxa = 3;     // int -> float é permitido
+radio a;
+radio b, c = 2, d;
+gaucha media = 0.0, taxa = 3;    // radio -> gaucha é permitido
 ```
 
 - Variável: começa com letra ou `_`, depois letras, dígitos ou `_` (sem acento).
@@ -59,28 +59,28 @@ float media = 0.0, taxa = 3;     // int -> float é permitido
 | menor | `+` `-` | esquerda |
 
 ```
-int x, y = 4;
-float f;
+radio x, y = 4;
+gaucha f;
 x = 10 + 5 * 2;        // 20
 x = 20 - 4 - 1;        // (20 - 4) - 1 = 15
 x = -(y + 1) * 2;      // -10
-f = y / 3;             // int / int = 1, depois vira 1.0
-f = y / 3.0;           // float: 1.333...
+f = y / 3;             // radio / radio = 1, depois vira 1.0
+f = y / 3.0;           // gaucha: 1.333...
 ```
 
 Regras de tipo:
-- `int op int` → int (a divisão **trunca**); se houver qualquer float → float.
-- `float ← int`: ok, com conversão automática (aparece como `(float)` no TAC).
-- `int ← float`: **erro**.
+- `radio op radio` → radio (a divisão **trunca**); se houver qualquer gaucha → gaucha.
+- `gaucha ← radio`: ok, com conversão automática (aparece como `(float)` no TAC).
+- `radio ← gaucha`: **erro**.
 
 ```
-int n;
+radio n;
 n = 2.5;
 ```
 
 Saída:
 ```
-[Guerrinha] Erro semântico na linha 2: não é possível atribuir valor float à variável int 'n'.
+[Little_Guerra] Erro semântico na linha 2: não é possível atribuir valor gaucha à variável radio 'n'.
 ```
 
 ## 5. Condições
@@ -92,8 +92,8 @@ Seis operadores: `==` `!=` `>` `<` `>=` `<=`. Uma condição compara **duas expr
 Chaves são **obrigatórias**, mesmo com um comando só. Senão-se e senão são opcionais; pode haver vários senão-se e no máximo um senão, sempre por último.
 
 ```
-int a = 7;
-float r;
+radio a = 7;
+gaucha r;
 
 Ninguém quer saber o preço do dólar (a > 10) {
     r = 1.0;
@@ -124,42 +124,42 @@ L1:
 
 ## 7. Seleção múltipla
 
-- A expressão entre `( )` precisa ser **int**.
+- A expressão entre `( )` precisa ser **radio**.
 - Cada caso tem um ou mais rótulos **literais inteiros** separados por vírgula (pode ser negativo: `-1`).
 - Rótulo repetido no mesmo comando é erro.
-- Sem `break;` o fluxo **cai no próximo caso** (como em C).
+- Sem `Tem gato na tuba;` o fluxo **cai no próximo caso** (como em C).
 - O caso padrão é opcional e, se existir, vem **por último**.
 - É preciso pelo menos um caso comum.
 
 ```
-int dia = 3, tipo;
+radio dia = 3, tipo;
 
-switch (dia) {
-    case 1:
+O time vai jogar motivado? (dia) {
+    Então vai perder motivado 1:
         tipo = 10;
-        break;
-    case 2, 6, 7:
+        Tem gato na tuba;
+    Então vai perder motivado 2, 6, 7:
         tipo = 20;
-        break;
-    case 3:
+        Tem gato na tuba;
+    Então vai perder motivado 3:
         tipo = 30;        // sem encerramento: continua no próximo caso
-    case 4:
+    Então vai perder motivado 4:
         tipo = tipo + 1;
-        break;
-    default:
+        Tem gato na tuba;
+    Butuca tira boi do mato:
         tipo = 0;
 }
 ```
 
 ## 8. Laço
 
-`break;` dentro do laço sai dele.
+`Tem gato na tuba;` dentro do laço sai dele.
 
 ```
-int i = 0;
+radio i = 0;
 Dormindo no gelo e acordando suado (i < 10) {
     Ninguém quer saber o preço do dólar (i == 5) {
-        break;
+        Tem gato na tuba;
     }
     i = i + 1;
 }
@@ -167,10 +167,11 @@ Dormindo no gelo e acordando suado (i < 10) {
 
 ## 9. Impressão
 
-Recebe **uma** expressão entre parênteses.
+Recebe **uma** expressão ou **um** texto entre aspas duplas, dentro dos parênteses. O texto abre e fecha na mesma linha e não tem sequências de escape. Texto só existe aqui: não dá para guardar em variável nem juntar com número.
 
 ```
-int x = 3;
+radio x = 3;
+Vou botar uma gravata pra te ouvir ("Hello, World!");
 Vou botar uma gravata pra te ouvir (x * 2 + 1);
 ```
 
@@ -179,16 +180,16 @@ Vou botar uma gravata pra te ouvir (x * 2 + 1);
 Cada `{ }` abre um escopo novo. O que é declarado dentro do bloco não existe fora dele, e um nome de fora não pode ser redeclarado dentro. Todos os casos de uma seleção compartilham o mesmo escopo.
 
 ```
-int a = 1;
+radio a = 1;
 Ninguém quer saber o preço do dólar (a > 0) {
-    int local = 2;
+    radio local = 2;
 }
 a = local;
 ```
 
 Saída:
 ```
-[Guerrinha] Erro semântico na linha 5: variável 'local' não foi declarada.
+[Little_Guerra] Erro semântico na linha 5: variável 'local' não foi declarada.
 ```
 
 ## 11. O que dá erro
@@ -202,11 +203,11 @@ Saída:
 | sintático | padrão antes de um caso comum | ver seção 7 |
 | sintático | condição fora de se/laço | `a = b > 1;` |
 | semântico | variável não declarada | `x = 1;` |
-| semântico | redeclaração | `int a; int a;` |
-| semântico (tipos) | `int ← float` | `n = 2.5;` |
-| semântico (tipos) | seleção sobre float | `switch (f) ...` |
-| semântico | rótulo de caso repetido | `case 1: ... case 2, 1:` |
-| semântico | encerramento fora de seleção/laço | `break;` solto |
+| semântico | redeclaração | `radio a; radio a;` |
+| semântico (tipos) | `radio ← gaucha` | `n = 2.5;` |
+| semântico (tipos) | seleção sobre gaucha | `O time vai jogar motivado? (f) ...` |
+| semântico | rótulo de caso repetido | `Então vai perder motivado 1: ... Então vai perder motivado 2, 1:` |
+| semântico | encerramento fora de seleção/laço | `Tem gato na tuba;` solto |
 
 Erro léxico ou sintático interrompe a compilação (para no **primeiro** erro sintático). Os erros semânticos são todos listados de uma vez.
 

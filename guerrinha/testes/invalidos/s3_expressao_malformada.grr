@@ -1,6 +1,6 @@
 // S3 - ERRO SINTÁTICO: operador sem operando e parêntese não fechado.
 // Esperado: erro sintático na linha 6, token inesperado '*'.
-int a = 1;
-float f;
+radio a = 1;
+gaucha f;
 
 f = (a + * 2;

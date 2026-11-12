@@ -1,26 +1,26 @@
 // V3 - Seleção múltipla: caso unitário, caso múltiplo, caso sem
 //      encerramento (cai no próximo), caso padrão.
 // Esperado: ACEITO. No TAC, o caso 3 não tem "goto" de saída: cai no 4.
-int dia = 3, tipo;
+radio dia = 3, tipo;
 
-switch (dia) {
-    case 1:
+O time vai jogar motivado? (dia) {
+    Então vai perder motivado 1:
         tipo = 10;
-        break;
-    case 2, 6, 7:
+        Tem gato na tuba;
+    Então vai perder motivado 2, 6, 7:
         tipo = 20;
-        break;
-    case 3:
+        Tem gato na tuba;
+    Então vai perder motivado 3:
         tipo = 30;
-    case 4:
+    Então vai perder motivado 4:
         tipo = tipo + 1;
-        break;
-    default:
+        Tem gato na tuba;
+    Butuca tira boi do mato:
         tipo = 0;
 }
 
 // seleção sem caso padrão
-switch (tipo - 30) {
-    case -1: tipo = 1; break;
-    case 1:  tipo = 2; break;
+O time vai jogar motivado? (tipo - 30) {
+    Então vai perder motivado -1: tipo = 1; Tem gato na tuba;
+    Então vai perder motivado 1:  tipo = 2; Tem gato na tuba;
 }

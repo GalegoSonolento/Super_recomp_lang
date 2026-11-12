@@ -76,4 +76,4 @@ L9:
     goto L7
 L7:
   >> "Se Beleza fosse crime, eu seria inocente"
-  [Guerrinha] Programa aceito.
+  [Little_Guerra] Programa aceito.

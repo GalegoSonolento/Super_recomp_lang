@@ -4,7 +4,7 @@
   frases.py  —  ÚNICO ARQUIVO ONDE SE TROCAM PALAVRAS E MENSAGENS
 =====================================================================
 
-Tudo que é "texto do Guerrinha" mora aqui. O analisador léxico monta
+Tudo que é "texto do Little_Guerra" mora aqui. O analisador léxico monta
 as expressões regulares das palavras reservadas a partir deste
 dicionário, então para trocar uma palavra basta editar a string.
 
@@ -25,7 +25,7 @@ Marcadores:
 # ---------------------------------------------------------------
 # Identidade da linguagem
 # ---------------------------------------------------------------
-NOME_LINGUAGEM = "Guerrinha"      # TODO-NOME: batizar a linguagem
+NOME_LINGUAGEM = "Little_Guerra"  # nome da linguagem
 EXTENSAO = ".grr"                 # extensão dos programas-fonte
 
 # ---------------------------------------------------------------
@@ -35,8 +35,8 @@ EXTENSAO = ".grr"                 # extensão dos programas-fonte
 # (guerrinha/parser.py). NÃO mude as chaves, só as frases.
 PALAVRAS_RESERVADAS = {
     # --- tipos (construção a) ---
-    "TIPO_INT":   "int",          # TODO-FRASE: tipo inteiro
-    "TIPO_FLOAT": "float",        # TODO-FRASE: tipo fracionário
+    "TIPO_INT":   "radio",        # tipo inteiro
+    "TIPO_FLOAT": "gaucha",       # tipo fracionário
 
     # --- condicional (construção b) ---
     "SE":         "Ninguém quer saber o preço do dólar",          # if
@@ -44,10 +44,10 @@ PALAVRAS_RESERVADAS = {
     "SENAO":      ", nós não temos dólar",                        # else
 
     # --- seleção múltipla (construção c) ---
-    "ESCOLHA":    "switch",       # TODO-FRASE: switch
-    "CASO":       "case",         # TODO-FRASE: case
-    "PARE":       "break",        # TODO-FRASE: break (encerramento de caso)
-    "PADRAO":     "default",      # TODO-FRASE: default (caso padrão)
+    "ESCOLHA":    "O time vai jogar motivado?",   # switch
+    "CASO":       "Então vai perder motivado",    # case
+    "PARE":       "Tem gato na tuba",             # break (encerramento de caso)
+    "PADRAO":     "Butuca tira boi do mato",      # default (caso padrão)
 
     # --- extras (não obrigatórios pelo enunciado) ---
     "ENQUANTO":   "Dormindo no gelo e acordando suado",           # while

@@ -40,7 +40,7 @@ Formato: **decisão** → benefício · por quê · contraponto. Serve de base p
    - Benefício: evita erros sintáticos em cascata e mostra vários erros semânticos de uma vez nos testes.
    - Contra: não há recuperação de erro (`error` do yacc), então o usuário corrige um erro sintático por vez.
 
-10. **Tipos: `float ← int` permitido, `int ← float` erro; `int / int = int`**
+10. **Tipos: `gaucha ← radio` permitido, `radio ← gaucha` erro; `radio / radio = radio`**
     - Benefício: igual a C/Java, e o TAC mostra a conversão `(float)` explicitamente.
     - Contra: `media = limite / 2` trunca antes de alargar (ver teste V1).
 
@@ -55,3 +55,8 @@ Formato: **decisão** → benefício · por quê · contraponto. Serve de base p
 13. **Frases de erro em vez de try/catch e main**
     - Benefício: try/catch exigiria semântica de exceção em tempo de execução, que um front-end não demonstra. O enunciado aceita programa sem `main` (exemplo Beacon).
     - Contra: perde duas construções "temáticas". Dá para voltar com `main` facilmente: `programa ::= MAIN bloco`.
+
+14. **Texto (`"..."`) só como argumento do `imprime`**
+    - Benefício: permite o Hello World sem mexer no sistema de tipos. `TEXTO` não está no FIRST de `expr`, então a gramática continua com 0 conflitos.
+    - Por quê: não existe tipo texto nem variável de texto. Um literal de texto solto numa conta precisaria de regras de tipo novas (concatenação, comparação).
+    - Contra: não dá para guardar texto em variável nem juntar texto e número num `imprime` só. O texto fica numa linha e não tem sequências de escape (`\n`, `\"`).

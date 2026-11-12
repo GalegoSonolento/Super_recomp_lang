@@ -1,15 +1,15 @@
 // E1 - ERRO SEMÂNTICO: uso de variável não declarada, redeclaração
 //      e variável usada fora do bloco em que foi declarada.
 // Esperado: 4 erros semânticos (linhas 8, 9, 10 e 15).
-int a;
-float b;
+radio a;
+gaucha b;
 
 a = 5;
 c = a + 1;          // 'c' não declarada
 a = d * 2;          // 'd' não declarada
-int a;              // redeclaração de 'a'
+radio a;            // redeclaração de 'a'
 
 Ninguém quer saber o preço do dólar (a > 0) {
-    int local = 1;
+    radio local = 1;
 }
 a = local;          // 'local' só existe dentro do bloco

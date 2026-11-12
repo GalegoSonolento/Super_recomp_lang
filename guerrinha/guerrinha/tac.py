@@ -12,6 +12,7 @@ Formato das instruções:
     goto L
     L:                  rótulo
     print x
+    print "texto"
 """
 
 from . import ast_nodes as A
@@ -157,7 +158,10 @@ class GeradorTAC:
         self.emit(f"goto {self.alvos_pare[-1]}")
 
     def cmd_Imprime(self, no):
-        self.emit(f"print {self.expr(no.expr)}")
+        if isinstance(no.expr, A.Texto):
+            self.emit(f'print "{no.expr.valor}"')
+        else:
+            self.emit(f"print {self.expr(no.expr)}")
 
 
 def gerar_tac(programa):

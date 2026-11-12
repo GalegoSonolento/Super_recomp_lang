@@ -2,14 +2,14 @@
 //      precedência/associatividade e menos unário.
 // Esperado: ACEITO. No TAC, 10 + 5 * 2 calcula a multiplicação primeiro
 //           e 20 - 4 - 1 associa à esquerda ((20 - 4) - 1).
-int limite, faixa;
-int base = 3;
-float media, taxa = 2.5;
+radio limite, faixa;
+radio base = 3;
+gaucha media, taxa = 2.5;
 
 limite = 10 + 5 * 2;
 faixa = 20 - 4 - 1;
 base = -(base + 1) * 2;
-media = limite / 2;          // int / int = int, depois alarga para float
+media = limite / 2;          // radio / radio = radio, depois alarga para gaucha
 taxa = taxa * base + 0.5;    // base é convertida para float no TAC
 
 Vou botar uma gravata pra te ouvir (media);

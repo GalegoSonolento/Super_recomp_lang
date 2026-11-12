@@ -1,0 +1,18 @@
+--- AST ---
+Programa
+  Imprime  (linha 3)
+    "Hello, World!"
+  Declaração int  (linha 5)
+    ano
+      2026
+  Imprime  (linha 6)
+    "Olá do Little_Guerra, no ano de"
+  Imprime  (linha 7)
+    ano
+--- Código de três endereços ---
+    print "Hello, World!"
+    ano = 2026
+    print "Olá do Little_Guerra, no ano de"
+    print ano
+  >> "Se Beleza fosse crime, eu seria inocente"
+  [Little_Guerra] Programa aceito.

@@ -63,4 +63,4 @@ Programa
     taxa = t12
     print media
   >> "Se Beleza fosse crime, eu seria inocente"
-  [Guerrinha] Programa aceito.
+  [Little_Guerra] Programa aceito.

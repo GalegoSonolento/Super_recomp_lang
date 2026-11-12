@@ -15,7 +15,15 @@ Tipos de expressão: int op int -> int (divisão inteira); qualquer float -> flo
 """
 
 from . import ast_nodes as A
+from . import frases
 from .erros import Erro
+
+# Nome de cada tipo interno como o programador escreve na linguagem
+# (as mensagens de erro usam a palavra reservada, não o nome interno).
+NOME_TIPO = {
+    "int": frases.PALAVRAS_RESERVADAS["TIPO_INT"],
+    "float": frases.PALAVRAS_RESERVADAS["TIPO_FLOAT"],
+}
 
 
 class TabelaSimbolos:
@@ -89,8 +97,9 @@ class Verificador:
     def checar_atribuicao(self, nome, t_var, t_expr, linha):
         if t_var == "int" and t_expr == "float":
             self.erro(linha,
-                      f"não é possível atribuir valor float à variável "
-                      f"int '{nome}'.", categoria="tipos")
+                      f"não é possível atribuir valor {NOME_TIPO['float']} "
+                      f"à variável {NOME_TIPO['int']} '{nome}'.",
+                      categoria="tipos")
 
     def cmd_Se(self, no):
         self.condicao(no.cond)
@@ -110,8 +119,9 @@ class Verificador:
     def cmd_Escolha(self, no):
         t = self.expr(no.expr)
         if t == "float":
-            self.erro(no.linha, "a expressão da seleção múltipla deve ser int, "
-                                "mas é float.", categoria="tipos")
+            self.erro(no.linha, f"a expressão da seleção múltipla deve ser "
+                                f"{NOME_TIPO['int']}, mas é "
+                                f"{NOME_TIPO['float']}.", categoria="tipos")
         vistos = {}
         self.profundidade_pare += 1
         for caso in no.casos:
@@ -135,7 +145,8 @@ class Verificador:
                                 "múltipla ou laço.")
 
     def cmd_Imprime(self, no):
-        self.expr(no.expr)
+        if not isinstance(no.expr, A.Texto):   # texto não tem o que verificar
+            self.expr(no.expr)
 
     # ---------------- expressões ----------------
     def condicao(self, cond):

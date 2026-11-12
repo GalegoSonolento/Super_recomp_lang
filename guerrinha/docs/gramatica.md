@@ -52,6 +52,7 @@ pare          ::= PARE PONTO_VIRGULA
 
 (* saída — extra *)
 imprime       ::= IMPRIME ABRE_PAR expr FECHA_PAR PONTO_VIRGULA
+                | IMPRIME ABRE_PAR TEXTO FECHA_PAR PONTO_VIRGULA
 
 (* (f) condições *)
 condicao      ::= expr relop expr
@@ -84,6 +85,7 @@ Relacionais não entram na tabela: só aparecem em `condicao`, nunca encadeados.
 | `ID` | `[A-Za-z_][A-Za-z0-9_]*` (sem acento) |
 | `NUM_INT` | `\d+` |
 | `NUM_FLOAT` | `\d+\.\d+` |
+| `TEXTO` | `"[^"\n]*"` (só como argumento do `imprime`) |
 | `MAIS` `MENOS` `VEZES` `DIVIDE` | `+` `-` `*` `/` |
 | `IGUAL` `DIFERENTE` | `==` `!=` |
 | `MAIOR` `MENOR` `MAIOR_IGUAL` `MENOR_IGUAL` | `>` `<` `>=` `<=` |
