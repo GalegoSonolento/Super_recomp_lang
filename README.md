@@ -108,10 +108,3 @@ docs/
 | 3d tradução dirigida | AST nas ações de `parser.py`; TAC em `tac.py` |
 | 3e 4 válidos + 4 inválidos | `testes/` (5 + 9) |
 | Erros com linha | `erros.py` (todas as fases) |
-
-## Pendências do trabalho
-- [x] Trocar as palavras provisórias (`SUBSTITUICOES.md`) e batizar a linguagem
-- [ ] Gerar o notebook e testar no Colab
-- [ ] Gravar o vídeo (≤ 1 min, MP4): válido → TAC → inválido sintático → inválido semântico
-- [ ] Preencher o relatório (`docs/referencia/...Template...docx`) usando `docs/` e `testes/saidas/`
-- [ ] Declarar o uso de IA na seção 6 do relatório
