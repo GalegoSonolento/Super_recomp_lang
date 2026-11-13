@@ -1,6 +1,7 @@
 # Guerrinha Lang — Compiladores, Trabalho do Grau B
 
 Linguagem cujas palavras reservadas e códigos de erro são frases do saudoso Adroaldo Guerra Filho, o guerrinha (Rádio Gaúcha), escrita em sua homenagem.
+
 Compilador em **Python + PLY**: léxico → sintático (LALR) → semântico → tradução (AST + código de três endereços) → execução (interpretador do código de três endereços).
 
 ## Como rodar um arquivo `.grr`
@@ -47,7 +48,6 @@ Compilador em **Python + PLY**: léxico → sintático (LALR) → semântico →
 ```bash
 pip install ply                                     # uma vez
 python main.py testes/validos/v5_hello_world.grr    # compila e EXECUTA
-python ferramentas/rodar_testes.py                  # todos os testes -> testes/saidas/
 ```
 
 Se o programa tiver erro (léxico, sintático, semântico ou de execução), aparece a frase + o erro com a linha, e o código de saída é 1.
@@ -63,8 +63,6 @@ Se o programa tiver erro (léxico, sintático, semântico ou de execução), apa
 | `--debug` | grava `build/parser.out` (tabela LALR) |
 
 No Windows, se os acentos saírem quebrados no terminal, rode antes `$env:PYTHONIOENCODING = "utf-8"` (PowerShell).
-
-**Colab:** rode `python ferramentas/gerar_notebook.py`, suba `colab/Little_Guerra.ipynb` no Colab e use *Executar tudo*. O notebook é autossuficiente (cada arquivo vira uma célula `%%writefile`).
 
 ## Estrutura
 
@@ -83,11 +81,6 @@ testes/
   validos/         v1..v5   (devem ser aceitos)
   invalidos/       s* sintáticos, l* léxico, e* semânticos (devem ser rejeitados)
   saidas/          gerado por rodar_testes.py (vai para o relatório)
-ferramentas/
-  rodar_testes.py          roda tudo e confere aceito/rejeitado
-  experimento_conflitos.py conflitos com e sem tabela de precedência
-  trocar_palavra.py        troca palavra provisória nos testes
-  gerar_notebook.py        gera colab/<Nome>.ipynb
 docs/
   gramatica.md     BNF, precedência, tokens, conflitos   (relatório seção 2)
   decisoes.md      decisões com benefício/contraponto    (relatório seção 3)
