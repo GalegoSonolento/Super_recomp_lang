@@ -1,4 +1,4 @@
-# Little_Guerra — Compiladores, Trabalho do Grau B
+# Guerrinha Lang — Compiladores, Trabalho do Grau B
 
 Linguagem cujas palavras reservadas são frases do Adroaldo Guerra Filho (Rádio Gaúcha).
 Compilador em **Python + PLY**: léxico → sintático (LALR) → semântico → tradução (AST + código de três endereços) → execução (interpretador do código de três endereços).
