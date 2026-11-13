@@ -1,6 +1,4 @@
-# Guia da linguagem Little_Guerra
-
-> Arquivo gerado por `ferramentas/gerar_guia.py` a partir de `guerrinha/frases.py`. **Não edite à mão**: rode o script de novo depois de trocar uma frase. Todos os exemplos abaixo foram compilados.
+# Guia da linguagem Guerrinha
 
 ## 1. Palavras reservadas
 
