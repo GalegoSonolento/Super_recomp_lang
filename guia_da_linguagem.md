@@ -215,13 +215,3 @@ Erro léxico ou sintático interrompe a compilação (para no **primeiro** erro 
 2. Rode `python main.py meu_programa.grr`: o programa é compilado e **executado** (o que ele imprime aparece no terminal). Se houver erro, aparece a frase + o erro com a linha, e nada é executado.
    Opções: `-gt` (grava `meu_programa.txt` ao lado, com AST + TAC), `-c` (só compila e mostra AST + TAC), `--so-tac`, `--so-ast` e `--tokens`; esta última é ótima para descobrir por que uma frase não foi reconhecida.
    Erros que só aparecem ao executar: divisão por zero e variável usada antes de receber valor (`radio n; ... (n + 1)`).
-3. Para virar teste do trabalho:
-   - válido → `testes/validos/vN_descricao.grr`; inválido → `testes/invalidos/<tipo>N_descricao.grr` (`s` sintático, `l` léxico, `e` semântico);
-   - comece com o cabeçalho abaixo (ele entra no relatório);
-   - rode `python ferramentas/rodar_testes.py` (a saída vai para `testes/saidas/`);
-   - rode `python ferramentas/gerar_notebook.py` para atualizar o Colab.
-
-```
-// E4 - ERRO SEMÂNTICO: <o que este programa testa>.
-// Esperado: <aceito | erro X na linha N>.
-```
