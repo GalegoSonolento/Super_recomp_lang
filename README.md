@@ -1,6 +1,6 @@
 # Guerrinha Lang — Compiladores, Trabalho do Grau B
 
-Linguagem cujas palavras reservadas são frases do Adroaldo Guerra Filho (Rádio Gaúcha).
+Linguagem cujas palavras reservadas e códigos de erro são frases do saudoso Adroaldo Guerra Filho, o guerrinha (Rádio Gaúcha), escrita em sua homenagem.
 Compilador em **Python + PLY**: léxico → sintático (LALR) → semântico → tradução (AST + código de três endereços) → execução (interpretador do código de três endereços).
 
 ## Como rodar um arquivo `.grr`
